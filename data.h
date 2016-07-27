@@ -1,5 +1,24 @@
+# define SPEED_MAX 50
+# define ARRAYSIZE 300 // Max LED Count
+# define  numPixels (sizeof(colors) / sizeof(colors[0]))
 
-const uint8_t PROGMEM ftv_gamma8[] = {
+uint32_t counter20ms          = 0;
+uint32_t starttime[ARRAYSIZE] = { 0 };
+uint32_t starttimerb          = 0;
+uint32_t maxtime              = 0;
+
+uint16_t startpixel = 0;
+uint16_t endpixel   = 0;
+uint16_t difference = 0;
+
+long HwRandom(long howbig) {
+    return random() % howbig;
+}
+long HwRandom(long howsmall, long howbig) {    
+    return random(howsmall, howbig);
+}
+
+const uint8_t PROGMEM gamma8[] = {
   0X01, 0X01, 0X01, 0X02, 0X02, 0X02, 0X03, 0X03, 0X03, 0X04, 0X04, 0X04,
   0X05, 0X05, 0X05, 0X06, 0X06, 0X06, 0X07, 0X07, 0X07, 0X08, 0X08, 0X08,
   0X09, 0X09, 0X0A, 0X0B, 0X0B, 0X0B, 0X0C, 0X0C, 0X0C, 0X0D, 0X0D, 0X0D,
@@ -22,7 +41,7 @@ const uint8_t PROGMEM ftv_gamma8[] = {
   0XD1, 0XD2, 0XD4, 0XD6, 0XD7, 0XD9, 0XDB, 0XDC, 0XDE, 0XE0, 0XE1, 0XE3,
   0XE5, 0XE6, 0XE8, 0XEA, 0XEC, 0XED, 0XEF, 0XF1, 0XF3, 0XF4, 0XF6, 0XF8,
   0XFA, 0XFB, 0XFD, 0XFF };
-const uint8_t PROGMEM ftv_colors[] = {
+const uint8_t PROGMEM colors[] = {
   0X8C, 0XD8, 0X8C, 0XF9, 0X8C, 0XD8, 0X84, 0X98, 0X7C, 0X77, 0X64, 0X16,
   0X43, 0X94, 0X4B, 0XB4, 0X43, 0X32, 0X42, 0XF1, 0X53, 0X51, 0X5B, 0X70,
   0X94, 0XF7, 0X8C, 0X94, 0X7C, 0X10, 0X84, 0X31, 0X8C, 0X72, 0X8C, 0X72,
