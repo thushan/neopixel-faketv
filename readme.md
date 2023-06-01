@@ -1,4 +1,4 @@
-# Neopixel Fake TV Simulator
+# NeoPixel Fake TV Simulator with Arduino
 
 An arduino nano project based on the excellent article from [Adafruit: Fake TV Light for Engineers](https://learn.adafruit.com/fake-tv-light-for-engineers/overview) by Phillip Burgess.
 
@@ -8,6 +8,13 @@ This code is essentially a working version of Phillips code with some extra deli
 
 * Arduino Nano / Mega / Uno
 * [NeoPixel from Adafruit](https://www.adafruit.com/category/168) (either a Ring in [24-LED](https://www.adafruit.com/product/1586) or [16-LED](https://www.adafruit.com/product/1463) or a [Stick](https://www.adafruit.com/product/1426))
+
+### My Setup
+
+* Arduino Nano - clone from eBay, $5 AUD!
+* NeoPixel Ring - [16x 5050 RGB LED](https://www.adafruit.com/product/1463)
+
+It's been running for years sipping on such tiny power at our office.
 
 ## Configuration
 
